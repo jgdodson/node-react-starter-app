@@ -1,0 +1,27 @@
+{
+  "app": {
+    "www": false,
+    "https": false,
+    "port": 4000,
+    "serveStaticBuild": false,
+    "proxy": {
+      "trust": false,
+      "levels": 0
+    }
+  },
+  "mysql": {
+    "maxConnections": 3,
+    "host": "",
+    "user": "",
+    "password": "",
+    "database": ""
+  },
+  "cookie": {
+    "secure": false,
+    "secret": "placeholder",
+    "name": "starter-app"
+  },
+  "oauth": {
+    "callbackURL": "http://localhost:4000/auth/google/callback"
+  }
+}

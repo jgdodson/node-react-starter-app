@@ -1,0 +1,57 @@
+FROM node:10.15.3
+
+#
+# Initial setup
+#
+
+RUN mkdir -p /usr/app
+WORKDIR /usr/app
+RUN mkdir api
+RUN mkdir web
+
+# Grant permissions to working directory
+RUN chown -R node: /usr/app && chmod -R u+rw /usr/app
+
+# Switch to non-root user
+USER node
+
+#
+# Backend
+#
+
+# Install dependencies
+WORKDIR /usr/app/api
+COPY --chown=node:node ./api/package.json ./api/package-lock.json ./
+RUN npm i && npm cache clean --force
+
+# Copy remaining files
+COPY --chown=node:node ./api .
+
+# Build the project
+RUN npm run build
+
+#
+# Frontend
+#
+
+WORKDIR /usr/app/web
+COPY --chown=node:node ./web/package.json ./web/package-lock.json ./
+RUN npm i && npm cache clean --force
+
+# Copy remaining files
+COPY --chown=node:node ./web .
+
+# Build the frontend
+RUN npm run build
+
+# Back to api directory
+WORKDIR /usr/app/api
+
+#
+# Final setup
+#
+
+# Not used by Heroku
+# EXPOSE 3000
+
+CMD ["node", "."]

@@ -1,0 +1,18 @@
+# IntelliJ
+.idea/
+
+# Node.js
+api/node_modules/
+web/node_modules/
+
+# NPM cache directory
+api/.npm
+web/.npm
+
+# Environment variables file
+api/.env
+web/.env
+
+# Built or processed files
+api/build/
+web/build/

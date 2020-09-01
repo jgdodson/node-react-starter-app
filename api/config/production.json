@@ -1,0 +1,27 @@
+{
+  "app": {
+    "www": true,
+    "https": true,
+    "port": 0,
+    "serveStaticBuild": true,
+    "proxy": {
+      "trust": true,
+      "levels": 1
+    }
+  },
+  "mysql": {
+    "maxConnections": 6,
+    "host": "",
+    "user": "",
+    "password": "",
+    "database": ""
+  },
+  "cookie": {
+    "secure": true,
+    "secret": "placeholder",
+    "name": "starter-app"
+  },
+  "oauth": {
+    "callbackURL": "https://www.ezpenpal.com/auth/google/callback"
+  }
+}

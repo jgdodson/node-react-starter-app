@@ -1,0 +1,10 @@
+# .dockerignore is relative to context root
+# it must be located in the context root
+
+api/build
+api/node_modules
+
+web/build
+web/node_modules
+
+ppw-scraper/node_modules

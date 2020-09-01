@@ -1,0 +1,5 @@
+# .dockerignore is relative to context root
+# it must be located in the context root
+
+build
+node_modules
